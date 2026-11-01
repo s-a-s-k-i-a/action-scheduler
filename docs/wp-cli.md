@@ -28,6 +28,12 @@ These are the commands available to use with Action Scheduler:
   * `--before` - Process only actions with scheduled date older than this. Defaults to 31 days. e.g `--before='7 days ago'`, `--before='02-Feb-2020 20:20:20'`
   * `--pause` - The number of seconds to pause between batches. Default no pause.
 
+* `action-scheduler fix-schema`
+
+  Creates or updates the database tables used by Action Scheduler: `actionscheduler_actions`, `actionscheduler_claims`, `actionscheduler_groups` and `actionscheduler_logs` (each with your site's table prefix). Missing tables are created, and missing columns and indexes are added to existing tables. The update always runs, even if Action Scheduler considers its schema to be up to date. It does not delete tables, columns or data. This can help if a table was deleted, or if database errors mention a missing Action Scheduler table or column.
+
+  This command has no options.
+
 * `action-scheduler migrate`
 
     **Note**: This command is only available while the migration to custom tables is in progress.
@@ -48,10 +54,12 @@ These are the commands available to use with Action Scheduler:
 * `action-scheduler action generate`
 * `action-scheduler action get`
 * `action-scheduler action list`
+* `action-scheduler action logs`
 * `action-scheduler action next`
 * `action-scheduler action run`
-* `action-scheduler datastore`
+* `action-scheduler data-store`
 * `action-scheduler runner`
+* `action-scheduler source`
 * `action-scheduler status`
 * `action-scheduler version`
 
